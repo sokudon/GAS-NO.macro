@@ -1,0 +1,1 @@
+# GAS-NO.macro
