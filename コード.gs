@@ -12,24 +12,36 @@ function doGet() {
   var sheets = ss.getSheetByName(sname);
   
 　var last_row = sheets.getLastRow()-1;
-　var last_col = 2;//sheets.getLastColumn()-2;
+　var last_col = 5;//sheets.getLastColumn()-2;
   
   
   var values= sheets.getRange(1,1,last_row ,last_col).getValues();
   var k=1;
   var ex=1;
+  var fs=1;//初期
+  var ev=1;//イベ
+  var cm=1;//コミュ
   
   for(var i=1;i<values.length;i++){
-    if(i==values.length-1){
-    values[i][0]="e"+ex;
+    if(values[i][4].indexOf("特")>0){
+    values[i][0]="e"+("0"+ ex).slice(-2);
       ex++;
     }
     else if(values[i][1]=="all"){
-    //values[i][0]="a"+("0"+ k).slice(-2);
+    values[i][0]="a"+("0"+ k).slice(-2);
     k++;
     }
-    else{
-    values[i][0]=i;
+    else if(values[i][4]=="初期"){
+    values[i][0]="b"+("0"+ k).slice(-2);
+    fs++;
+    }
+    else if(values[i][4]=="イベ"){
+    values[i][0]="c"+("0"+ ev).slice(-2);
+    ev++;
+    }
+    else if(values[i][4]=="コミュ"){
+    values[i][0]="d"+("0"+ cm).slice(-2);
+    cm++;
     }
   
   }
