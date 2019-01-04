@@ -32,7 +32,7 @@ function doGet() {
     k++;
     }
     else if(values[i][4]=="初期"){
-    values[i][0]="b"+("0"+ k).slice(-2);
+    values[i][0]="b"+("0"+ fs).slice(-2);
     fs++;
     }
     else if(values[i][4]=="イベ"){
